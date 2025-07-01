@@ -1,17 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const greetingForm = document.getElementById('greeting-form');
-    const greetingTextarea = greetingForm.querySelector('textarea');
-    const greetingList = document.getElementById('greeting-list');
     const typingEffectElement = document.querySelector('.typing-effect');
     const revealSections = document.querySelectorAll('.reveal-on-scroll');
     const currentYearSpan = document.getElementById('current-year');
+    const backgroundMusic = document.getElementById('background-music'); // Ambil elemen audio
 
     // Mengatur tahun saat ini di footer
     currentYearSpan.textContent = new Date().getFullYear();
 
+    // --- Usaha Memutar Musik Otomatis ---
+    // Cobalah memutar musik segera.
+    // Jika gagal (karena kebijakan browser), tangkap error dan coba lagi saat ada interaksi.
+    backgroundMusic.play().catch(error => {
+        console.log("Autoplay musik diblokir. Musik akan diputar setelah interaksi pengguna pertama.");
+        // Tambahkan event listener ke seluruh dokumen untuk mendeteksi interaksi pertama
+        document.addEventListener('click', playMusicOnInteraction, { once: true });
+        document.addEventListener('scroll', playMusicOnInteraction, { once: true });
+        document.addEventListener('keydown', playMusicOnInteraction, { once: true });
+    });
+
+    function playMusicOnInteraction() {
+        if (backgroundMusic.paused) {
+            backgroundMusic.play().then(() => {
+                console.log("Musik diputar setelah interaksi pengguna.");
+            }).catch(e => {
+                console.error("Gagal memutar musik setelah interaksi:", e);
+            });
+        }
+    }
+
     // --- Efek Ketik (Typing Effect) ---
     const messages = [
-        "Teruslah bersinar terang!",
+        "Teruslah bersinar terang, Shitie Hallimah!",
         "Semoga harimu penuh kebahagiaan.",
         "Semua impianmu menjadi kenyataan.",
         "Kami semua menyayangimu!"
@@ -69,42 +88,4 @@ document.addEventListener('DOMContentLoaded', function() {
     revealSections.forEach(section => {
         observer.observe(section);
     });
-
-    // --- Form Ucapan ---
-    greetingForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Mencegah form reload halaman
-        const ucapan = greetingTextarea.value.trim();
-
-        if (ucapan) {
-            addGreeting(ucapan);
-            greetingTextarea.value = ''; // Kosongkan textarea
-            removeNoGreetingsMessage();
-        }
-    });
-
-    function addGreeting(ucapan) {
-        const greetingItem = document.createElement('div');
-        greetingItem.classList.add('greeting-item');
-        greetingItem.innerHTML = `<p>${ucapan}</p>`; // Menggunakan innerHTML karena ada ikon di CSS ::before
-
-        // Tambahkan ke paling atas daftar ucapan
-        greetingList.prepend(greetingItem);
-
-        // Hapus pesan "Belum ada ucapan" jika ada
-        const noGreetings = greetingList.querySelector('.no-greetings-yet');
-        if (noGreetings) {
-            noGreetings.remove();
-        }
-    }
-
-    function removeNoGreetingsMessage() {
-        const noGreetings = greetingList.querySelector('.no-greetings-yet');
-        if (noGreetings) {
-            noGreetings.remove();
-        }
-    }
-
-    // Optional: Load existing greetings from Local Storage if any
-    // This part requires more advanced logic if you want persistence
-    // For now, it will start fresh on each load.
 });
