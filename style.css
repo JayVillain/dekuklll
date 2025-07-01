@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to bottom right, #fff1f5, #fceff9);
-  color: #4b2e4c;
+  background-color: #1e1e2f;
+  color: #f8f8f8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,13 +19,14 @@ body {
 .title {
   font-size: 2.5em;
   margin-bottom: 0.2em;
+  color: #e4d6ff;
   animation: fadeIn 1.2s ease-out;
 }
 
 .subtitle {
   font-size: 1.2em;
   margin-bottom: 1.5em;
-  color: #777;
+  color: #d3cce3;
   animation: fadeIn 1.5s ease-out;
 }
 
@@ -35,7 +36,8 @@ body {
   height: 500px;
   overflow: hidden;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border: 2px solid #3e3b5c;
 }
 
 .slide {
@@ -54,6 +56,7 @@ body {
 .message {
   margin-top: 2em;
   font-size: 1.1em;
+  color: #e0c5ff;
   animation: fadeIn 2s ease-out;
 }
 
