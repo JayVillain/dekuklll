@@ -1,8 +1,21 @@
-let current = 0;
-const slides = document.querySelectorAll(".slide");
+// JavaScript (script.js)
+document.addEventListener('DOMContentLoaded', function() {
+    const fotoGrid = document.querySelector('.foto-grid'); // Memilih div dengan class 'foto-grid'
 
-setInterval(() => {
-  slides[current].classList.remove("active");
-  current = (current + 1) % slides.length;
-  slides[current].classList.add("active");
-}, 3500);
+    // Daftar foto adik Anda (ganti dengan path atau URL foto sebenarnya)
+    const daftarFoto = [
+        'images/foto1.jpg', // Path ke gambar Anda
+        'images/foto2.jpg',
+        'images/foto3.jpg',
+        'images/foto4.jpg',
+        'images/foto5.jpg'
+    ];
+
+    // Tambahkan foto ke galeri
+    daftarFoto.forEach(foto => { // Melakukan iterasi untuk setiap foto di 'daftarFoto'
+        const img = document.createElement('img'); // Membuat elemen <img> baru
+        img.src = foto; // Menetapkan atribut 'src' dari <img> ke path foto
+        img.alt = 'Foto Adik'; // Menetapkan atribut 'alt' untuk aksesibilitas
+        fotoGrid.appendChild(img); // Menambahkan <img> ke dalam div 'foto-grid' di HTML
+    });
+});
