@@ -1,41 +1,76 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Selamat Ulang Tahun Adikku Sayang!</title>
- <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun Adikku Tersayang!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header>
- <h1>Selamat Ulang Tahun, [Nama Adik]!</h1>
- <p>Hari yang spesial untuk seseorang yang spesial!</p>
- </header>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="fade-in-up">Selamat Ulang Tahun, <span class="highlight-name">[Nama Adik]</span>!</h1>
+            <p class="typing-effect"></p>
+        </div>
+    </header>
 
+    <section id="about" class="section-container reveal-on-scroll">
+        <div class="content-wrapper">
+            <h2>Tentang Adikku Tersayang</h2>
+            <p>Seorang pribadi yang luar biasa, penuh tawa, cinta, dan semangat. Setiap hari bersamamu adalah anugerah. Semoga di usiamu yang baru ini, kebahagiaan selalu menyertaimu.</p>
+        </div>
+    </section>
 
- <section id="galeri">
- <h2>Kenangan Indah</h2>
- <div class="foto-grid">
- </div>
- </section>
+    <section id="gallery" class="section-container reveal-on-scroll">
+        <h2>Kenangan Indah Bersamamu</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/di (1).jpg" alt="Adik sedang tersenyum" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="images/di (2).jpg" alt="Adik sedang tertawa" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="images/di (3).jpg" alt="Momen spesial adik" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="images/di (4).jpg" alt="Petualangan adik" loading="lazy">
+            </div>
+            <div class="gallery-item">
+                <img src="images/di (5).jpg" alt="Adik yang menggemaskan" loading="lazy">
+            </div>
+        </div>
+    </section>
 
+    <section id="quotes" class="section-container reveal-on-scroll">
+        <div class="content-wrapper">
+            <h2>Harapan & Doa</h2>
+            <blockquote class="quote-text">
+                "Semoga setiap langkahmu dipenuhi kebahagiaan, dan impianmu terwujud. Teruslah bersinar, adikku!"
+            </blockquote>
+            <p class="quote-author">- Kakak Tersayang, [Nama Kamu]</p>
+        </div>
+    </section>
 
- <section id="ucapan">
- <h2>Tinggalkan Ucapanmu</h2>
- <form id="form-ucapan">
- <textarea placeholder="Tulis ucapan selamat ulang tahun untuk [Nama Adik]"></textarea>
- <button type="submit">Kirim Ucapan</button>
- </form>
- <div id="daftar-ucapan">
- </div>
- </section>
+    <section id="wish-form" class="section-container reveal-on-scroll">
+        <h2>Tinggalkan Ucapan Indahmu</h2>
+        <form id="greeting-form">
+            <textarea placeholder="Tulis ucapan selamat ulang tahun untuk [Nama Adik]..." required></textarea>
+            <button type="submit">Kirim Ucapan Manis</button>
+        </form>
+        <div id="greeting-list">
+            <h3>Ucapan yang Telah Terkumpul:</h3>
+            <p class="no-greetings-yet">Belum ada ucapan, jadilah yang pertama!</p>
+        </div>
+    </section>
 
+    <footer class="fade-in-up">
+        <p>&copy; <span id="current-year"></span> Dengan Sepenuh Hati dari [Nama Kamu]</p>
+    </footer>
 
- <footer>
- <p>Dengan penuh cinta dari [Nama Kamu]</p>
- </footer>
-
-
- <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
